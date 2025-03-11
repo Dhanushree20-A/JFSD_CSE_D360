@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Alliance University Weather</h1>
+    <p><h3>City:<span id="city"></span></h3></p>
+    <p><h3>Temperature:<span id="temp"></span></h3></p>
+    <script>
+        fetch('https://api.openweathermap.org/data/2.5/weather?q=Anekal&appid=dd55f4a4a36d891d91c1d8075c00782d')
+        .then(response => response.json())
+        .then(data => display(data));
+
+        function display(data){
+            const city = document.getElementById('city');
+            city.textContent = data.name;
+            console.log(data.main.temp);
+            const temp = document.getElementById('temp');
+            temp.textContent = data.main.temp;
+        }
+
+
+    </script>
+    
+</body>
+</html>
